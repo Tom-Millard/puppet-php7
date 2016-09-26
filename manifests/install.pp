@@ -19,4 +19,10 @@ class php7::install inherits php7
       ensure => 'installed',
     }
 
+    each($php7::package_ensured) |String $pack| {
+      package { $pack :
+        ensure => 'installed',
+      }
+    }
+
 }
